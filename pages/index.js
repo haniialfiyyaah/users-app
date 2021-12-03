@@ -1,23 +1,22 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import Link from 'next/link'
-import { startClock } from '../actions'
-import Examples from '../components/examples'
+import HeadTitle from '../components/HeadTitle'
+import Logo from '../components/Logo'
+import Stepper from '../components/Progress'
+import CreateAccount from '../components/Steps/CreateAccount'
+import styles from '../styles/Home.module.css'
 
-const Index = () => {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(startClock())
-  }, [dispatch])
-
+const Home = () => {
   return (
-    <>
-      <Examples />
-      <Link href="/show-redux-state">
-        <a>Click to see current Redux State</a>
-      </Link>
-    </>
+    <div className={styles.container}>
+      <HeadTitle />
+
+      <main className={styles.main}>
+        <Logo />
+        <Stepper />
+        <CreateAccount />
+        {/* STEP */}
+      </main>
+    </div>
   )
 }
 
-export default Index
+export default Home
